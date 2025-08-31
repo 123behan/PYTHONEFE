@@ -1,0 +1,10 @@
+.login-image {
+
+        background-image:linear-gradient(#000, rgba(15, 17, 32, 0.062)),url('../img/loginPage.jpg');
+        
+
+}
+
+body{
+    overflow: hidden;
+}

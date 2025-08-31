@@ -1,0 +1,53 @@
+{% load static %}
+
+     <link type="text/css" rel="stylesheet" href="{% static 'restaurant/css/header.css' %}">
+
+<header>
+    <div class="navigator">
+        <nav class="navbar navbar-expand-lg sticky-top" style="box-shadow: none;">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        aria-expanded="false" aria-label="Toggle Navigation"
+                        data-bs-target="#navbarContent" aria-controls="navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav container-fluid " >
+                        <li class="nav-item logo text-center" style="width: 10%;">
+                            <a href="{% url 'index' %}">
+                                <img class="logo" src="{% static 'restaurant/img/logo.jpg'%}"/>
+                            </a>
+                        </li>
+                        <li class="nav-item active mx-2 text-center" style="width: 100% ;">
+
+                        <div class="row">
+                            <div class="col-5"></div>
+                            <div class="col-1">
+
+                            <a class="nav-link" href="{% url 'index' %}">Home</a>
+                        </div>
+
+
+                        <div class="col-1">
+                            <a class="nav-link" href="{% url 'details' %}">  Details</a>
+
+                            </div>
+                            <div class="col-5"></div>
+                        </div>
+                        </li>
+
+                         <li class="nav-item active mx-2 text-center"></li>
+                             {% if not user.is_authenticated %}
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            {% else %}
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                            {% endif %}
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

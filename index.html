@@ -1,0 +1,126 @@
+{% extends 'restaurant/base/base.html' %}
+{% load static %}
+{% block content %}
+<link type="text/css" rel="stylesheet" href="{% static 'restaurant/css/index.css' %}">
+
+<div class="wrapper">
+    <div class="hero">
+        {% include 'restaurant/semantics/header.html' %}
+        <div class="virtical-align-hero">
+            <h1 class="welcome mt-3 text-center">
+                welcome in my restaurant
+            </h1>
+        </div>
+    </div>
+
+    <div class="index-content mt-5 container mx-auto">
+        {% for meal in meals %}
+        <div class="row mx-2 pt-5">
+
+            <!-- meal one -->
+            <div class="col px-0">
+                {% if meal.one %}
+                <div class="meal-content border mx-2 pb-2">
+                    <div>
+                        <a href="#">
+                            <img class="meal-image" src="{{ meal.one.image.url }}" />
+                        </a>
+                    </div>
+                    <div class="column-text-content px-3">
+                        <div class="pt-3 meal-name">
+                            {{ meal.one.name }}
+                        </div>
+                        <div class="pt-2 meal-price">
+                            <span>$</span>{{ meal.one.price }}
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="pt-2 meal-stock" style="color:black; font-weight:bold;">
+                                    <span class="stock">In Stock:</span>
+                                    {{ meal.one.stock }}
+                                </div>
+                            </div>
+                            <div class="col order-button-align">
+                                <div class="order-button">
+                                    <a href="{% url 'order' pk=meal.one.id %}" class="btn btn-dark">Order</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- meal two -->
+            <div class="col px-0">
+                {% if meal.two %}
+                <div class="meal-content border mx-2 pb-2">
+                    <div>
+                        <a href="#">
+                            <img class="meal-image" src="{{ meal.two.image.url }}" />
+                        </a>
+                    </div>
+                    <div class="column-text-content px-3">
+                        <div class="pt-3 meal-name">
+                            {{ meal.two.name }}
+                        </div>
+                        <div class="pt-2 meal-price">
+                            <span>$</span>{{ meal.two.price }}
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="pt-2 meal-stock" style="color:black; font-weight:bold;">
+                                    <span class="stock">In Stock:</span>
+                                    {{ meal.two.stock }}
+                                </div>
+                            </div>
+                            <div class="col order-button-align">
+                                <div class="order-button">
+                                    <a href="{% url 'order' pk=meal.two.id %}" class="btn btn-dark">Order</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- meal three -->
+            <div class="col px-0">
+                {% if meal.three %}
+                <div class="meal-content border mx-2 pb-2">
+                    <div>
+                        <a href="#">
+                            <img class="meal-image" src="{{ meal.three.image.url }}" />
+                        </a>
+                    </div>
+                    <div class="column-text-content px-3">
+                        <div class="pt-3 meal-name">
+                            {{ meal.three.name }}
+                        </div>
+                        <div class="pt-2 meal-price">
+                            <span>$</span>{{ meal.three.price }}
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="pt-2 meal-stock" style="color:black; font-weight:bold;">
+                                    <span class="stock">In Stock:</span>
+                                    {{ meal.three.stock }}
+                                </div>
+                            </div>
+                            <div class="col order-button-align">
+                                <div class="order-button">
+                                    <a href="{% url 'order' pk=meal.three.id %}" class="btn btn-dark">Order</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
